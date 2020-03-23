@@ -1,0 +1,87 @@
+<div class="container">
+<h3>Fresher</h3>
+
+<div class="fresher" *ngIf="fresher">  <!---->
+    <h4>Personal</h4>
+<form class="form-group" [formGroup]="fresherFormGroup" >
+        Name: <input type="text" formControlName="name">   <br>
+        <small class="form-text text-danger" *ngIf="fresherFormGroup.controls.name.invalid && fresherFormGroup.controls.name.touched">Name is Required</small>
+        Email Id: <input type="text" formControlName="email">   <br>
+        <small class="form-text text-danger" *ngIf="fresherFormGroup.controls.email.invalid && fresherFormGroup.controls.email.touched">Email is Required</small>
+    Create Password:<input type="text" formControlName="password"> <br>
+    <small class="form-text text-danger" *ngIf="fresherFormGroup.controls.password.invalid && fresherFormGroup.controls.password.touched">Password is Required</small>
+    Mobile Number:<input type="text" formControlName="mobile">   <br>
+    <small class="form-text text-danger" *ngIf="fresherFormGroup.controls.mobile.invalid && fresherFormGroup.controls.mobile.touched">Mobile Number is Required</small>
+    
+    Current Location:<select formControlName="location">
+        <option value="" selected>Select City</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Nadiad">Nadiad</option>
+    </select><br>
+    <small class="form-text text-danger" *ngIf="fresherFormGroup.controls.location.invalid && fresherFormGroup.controls.mobile.touched">Please Select City</small>
+
+    <input type="checkbox" formControlName="privacy" >I agreed to the Terms and Conditions governing the use of Naukri.com.
+    I have reviewed the default Mailer & Communications settings.
+    <div *ngIf="fresherFormGroup.controls.privacy.invalid && fresherFormGroup.controls.privacy.errors.required">This checkbox must be checked</div>
+</form>
+
+<button type="submit" (click)="Submit()" [disabled]="!fresherFormGroup.valid">Register Now</button>
+</div>
+
+
+<div class="education" *ngIf="education">
+    <h4>Education</h4>
+    <form [formGroup]="educationFormGroup"> 
+
+        Highest Qualification: <select formControlName="qualification">
+            <option value="" selected>Select Your Highest Qualification</option>
+            <option value="10th">10th</option>
+            <option value="12th">12th</option>
+            <option value="Graduation/Diploma">Graduation/Diploma</option>
+            <option value="Master/Post-Graduation">Master/Post-Graduation</option>
+            <option value="Doctorate/PhD">Doctorate/PhD</option>
+        </select><br>
+<small class="form-text text-danger" *ngIf="educationFormGroup.controls.qualification.invalid && educationFormGroup.controls.qualification.touched">Please Select Qualification</small>
+       
+Course: <select formControlName="course">
+            <option value="" selected>Select Your Course</option>
+            <option value="MCA">MCA</option>
+            <option value="BCA">BCA</option>
+            <option value="CA">CA</option>
+            <option value="CS">CS</option>
+            <option value="DM">DM</option>
+            <option value="ICWA">ICWA</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.course.invalid && educationFormGroup.controls.course.touched">Please Select Course</small>
+        
+Specialization: <select formControlName="specialization">
+            <option value="">Please Select Specialization</option>
+            <option value="Computers">Computers</option>
+            <option value="Dentisty">Dentistry</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Management">Management</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.specialization.invalid && educationFormGroup.controls.specialization.touched">Please Select City</small>
+
+        Course Type: <input type="radio" formControlName="coursetype" value="Full Time" checked>Full Time
+        <input type="radio" formControlName="coursetype" value="Part Time">Part Time
+        <input type="radio" formControlName="coursetype" value="Correspondence">Correspondence     <br>
+
+        Passing Year: <select formControlName="year">
+            <option value="" selected>Select Passing Yar</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.year.invalid && educationFormGroup.controls.year.touched">Please Select City</small>
+
+        Skills: <input type="text" formControlName="skills">
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.skills.invalid && educationFormGroup.controls.skills.touched">Specify Your Key Skills</small>
+    </form>
+
+    <button [disabled]="!educationFormGroup.valid">Continue</button>
+</div>
+</div>

@@ -1,0 +1,34 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Login
+   </button>
+   
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <form [formGroup]="loginFormGroup">
+            
+             Email: <input type="text" id="email" formControlName="email" required><br>
+             <small class="form-text text-danger" *ngIf="loginFormGroup.controls.email.invalid && loginFormGroup.controls.email.touched">Email is Required</small>
+            
+            Password: <input type="text" formControlName="password" required><br>
+            <small class="form-text text-danger" *ngIf="loginFormGroup.controls.password.invalid && loginFormGroup.controls.password.touched">Password is Required</small>
+   
+           </form>
+         </div>
+         <div class="modal-footer">
+           <a routerLink="/account" data-dismiss="modal">Regitration</a>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="submit" class="btn btn-primary" [disabled]="!loginFormGroup.valid">Login</button>
+         </div>
+       </div>
+     </div>
+   </div>

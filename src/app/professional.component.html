@@ -1,0 +1,201 @@
+<div class="container">
+<h3>Professional</h3>
+
+<div class="professional" *ngIf="professional">  
+    <h4>Personal</h4>
+    <div class="form-group">
+<form class="form-group" [formGroup]="professionalFormGroup" >
+    <div>
+        Name: <input type="text" formControlName="name"> 
+        <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.name.invalid && professionalFormGroup.controls.name.touched">Name is Required</small>
+    </div>
+    <div>
+        Email Id: <input type="text" formControlName="email">   <br>
+        <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.email.invalid && professionalFormGroup.controls.email.touched">Email is Required</small>
+    </div>
+    <div>
+        Create Password:<input type="text" formControlName="password"> <br>
+    <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.password.invalid && professionalFormGroup.controls.password.touched">Password is Required</small>
+    </div>
+    <div>
+    Mobile Number:<input type="text" formControlName="mobile">   <br>
+    <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.mobile.invalid && professionalFormGroup.controls.mobile.touched">Mobile Number is Required</small>
+    </div>
+
+    <div>
+    Current Location:<select formControlName="location">
+        <option value="" selected>Select City</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Nadiad">Nadiad</option>
+    </select><br>
+    <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.location.invalid && professionalFormGroup.controls.mobile.touched">Please Select City</small>
+</div>
+
+<div>
+    Total Work Experience:<select formControlName="experience">
+        <option value="" selected>Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>  :Years  
+    <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.experience.invalid && professionalFormGroup.controls.experience.touched">Please select Experience</small>
+ 
+ 
+    <select formControlName="month">
+        <option value="" selected>Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>    :Months
+    <small class="form-text text-danger" *ngIf="professionalFormGroup.controls.month.invalid && professionalFormGroup.controls.month.touched">Please select Months</small>
+   </div>
+   <br> 
+   <div >
+   <input type="checkbox" formControlName="privacy">I agreed to the Terms and Conditions governing the use of Naukri.com.
+    I have reviewed the default Mailer & Communications settings.
+     <small *ngIf="professionalFormGroup.controls.privacy.invalid && professionalFormGroup.controls.privacy.errors.required">This checkbox must be checked</small> 
+   </div>
+</form>
+
+<button type="submit" (click)="register()" [disabled]="!professionalFormGroup.valid">Register Now</button>
+</div>
+</div>
+
+<div class="employment" *ngIf="employment">  
+<h4>Employment</h4>
+
+<form [formGroup]="employmentFormGroup">
+Current Designation: <input type="text" formControlName="designation" required><br>
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.designation.invalid && employmentFormGroup.controls.designation.touched">Designation is Required</small>
+
+Current Company: <input type="text" formControlName="company" required>
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.company.invalid && employmentFormGroup.controls.company.touched">Company Name is Required</small>
+<br>
+
+Annual Salary:<input type="radio" name="currency" value="rs"  checked>&#x20b9;
+                <input type="radio" name="currency" value="$" >$
+
+<select formControlName="lakhs" >
+    <option value="" selected>select</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>Lakhs
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.lakhs.invalid && employmentFormGroup.controls.lakhs.touched">Please select Salary</small>
+
+<select formControlName="thousand">
+<option value="">select</option>
+<option value="0">0</option>
+<option value="5">5</option>
+<option value="10">10</option>
+<option value="15">15</option>
+</select>Thousand 
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.thousand.invalid && employmentFormGroup.controls.thousand.touched">Please select Salary</small>
+<br>
+
+Current Location:<select formControlName="location">
+<option value="">select your location</option>
+<option value="Ahmedabad">Ahmedabad</option>
+<option value="Delhi">Delhi</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Nadiad">Nadiad</option>
+</select> 
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.thousand.invalid && employmentFormGroup.controls.thousand.touched">Please select Salary</small>
+<br>
+
+Skills: <input type="text" formControlName="skill">     <br>
+<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.skill.invalid && employmentFormGroup.controls.skill.touched">skill is Required</small>
+
+Industry:<select formControlName="industry">
+    <option value="" selected>Select Industry</option>
+    <option value="animation">Animation</option>
+    <option value="Advertising">Advertising</option>
+    <option value="Agriculture">Agriculture</option>
+    <option value="IT-Software">IT-Software</option>
+</select>       <br>
+
+Functional Area:<select formControlName="area">
+    <option value="" selected>Select Functional Area</option>
+    <option value="agent">Agent</option>
+    <option value="banking"> Banking</option>
+    <option value="architecture">Architecture</option>
+    <option value="it">IT Software-MainFrame</option>
+</select>       <br>
+
+Role:<select formControlName="role">
+    <option value="" selected>Select Role</option>
+    <option value="devloper" >Software Devloper</option>
+    <option value="analyst">System Analyst</option>
+    <option value="tech">Tech Architect</option>
+</select>
+</form>
+
+<button (click)="continue()" [disabled]="!employmentFormGroup.valid">Continue</button>
+</div>
+
+<div class="education" *ngIf="education">
+    <h4>Education</h4>
+    <form [formGroup]="educationFormGroup"> 
+
+        Highest Qualification: <select formControlName="qualification">
+            <option value="" selected>Select Your Highest Qualification</option>
+            <option value="10th">10th</option>
+            <option value="12th">12th</option>
+            <option value="Graduation/Diploma">Graduation/Diploma</option>
+            <option value="Master/Post-Graduation">Master/Post-Graduation</option>
+            <option value="Doctorate/PhD">Doctorate/PhD</option>
+        </select><br>
+<small class="form-text text-danger" *ngIf="educationFormGroup.controls.qualification.invalid && educationFormGroup.controls.qualification.touched">Please Select Qualification</small>
+       
+Course: <select formControlName="course">
+            <option value="" selected>Select Your Course</option>
+            <option value="MCA">MCA</option>
+            <option value="BCA">BCA</option>
+            <option value="CA">CA</option>
+            <option value="CS">CS</option>
+            <option value="DM">DM</option>
+            <option value="ICWA">ICWA</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.course.invalid && educationFormGroup.controls.course.touched">Please Select Course</small>
+        
+Specialization: <select formControlName="specialization">
+            <option value="">Please Select Specialization</option>
+            <option value="Computers">Computers</option>
+            <option value="Dentisty">Dentistry</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Management">Management</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.specialization.invalid && educationFormGroup.controls.specialization.touched">Please Select City</small>
+
+        University/College:<input type="text" formControlName="college">
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.college.invalid && educationFormGroup.controls.college.touched">College field is Required</small>
+        Course Type: <input type="radio" formControlName="coursetype" value="Full Time" checked>Full Time
+        <input type="radio" formControlName="coursetype" value="Part Time">Part Time
+        <input type="radio" formControlName="coursetype" value="Correspondence">Correspondence     <br>
+
+        Passing Year: <select formControlName="year">
+            <option value="" selected>Select Passing Yar</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select><br>
+        <small class="form-text text-danger" *ngIf="educationFormGroup.controls.year.invalid && educationFormGroup.controls.year.touched">Please Select City</small>
+
+    </form>
+
+    <button [disabled]="!educationFormGroup.valid">Continue</button>
+</div>
+</div>
